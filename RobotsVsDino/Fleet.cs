@@ -18,15 +18,7 @@ namespace RobotsVsDino
             Robot Sentinel = new Robot("Sentinel", "Plasma Laser");
             Robot Gundam = new Robot("Gundam", "RailGun");
 
-            OptimusPrime.attackPower = 3000;
-            OptimusPrime.health = 3450;
-            OptimusPrime.powerLevel = 3640;
-            Sentinel.attackPower = 1300;
-            Sentinel.health = 4050;
-            Sentinel.powerLevel = 4950;
-            Gundam.attackPower = 3050;
-            Gundam.health = 4090;
-            Gundam.powerLevel = 3750;
+            
 
             robots.Add(Sentinel);
             robots.Add(OptimusPrime);

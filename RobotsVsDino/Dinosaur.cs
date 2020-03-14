@@ -22,9 +22,9 @@ namespace RobotsVsDino
         }
 
 
-        static void attack(Robot Victim)
+        public void Attack(Robot Victim)
         {
-            Victim.health -= Victim.attackPower / 9000 * 175;
+            Victim.health -= Victim.health - 175;
         }
 
     }

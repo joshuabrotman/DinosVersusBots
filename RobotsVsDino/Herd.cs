@@ -27,6 +27,11 @@ namespace RobotsVsDino
             Velociraptor.attackPower = 2250;
             Velociraptor.energy = 1250;
             Velociraptor.health = 1000;
+
+            dinos.Add(Tyrannosaurus);
+            dinos.Add(Triceratops);
+            dinos.Add(Velociraptor);
+
         }
 
         

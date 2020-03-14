@@ -21,11 +21,12 @@ namespace RobotsVsDino
             powerLevel = 100;
             weapon = weaponName;
             attackPower = 100;
+
         }
 
         public void Attack(Dinosaur Victim)
         {
-            Victim.health -= Victim.attackPower/9000 * 250;
+            Victim.health -= Victim.attackPower - 250;
         }
 
     }

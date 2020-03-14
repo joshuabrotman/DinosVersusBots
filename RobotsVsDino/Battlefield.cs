@@ -20,12 +20,33 @@ namespace RobotsVsDino
 
         public void Fight()
         {
-            Console.WriteLine("Press D for dinos to attack first, R for Robots.");
-            Console.WriteLine(Petrolius.dinos[0]);
-            Solaris.robots[0].Attack(Petrolius.dinos[0]);
-            Console.WriteLine(Petrolius.dinos[0]);
-            Console.ReadLine();
+            for (int currentVictim = 0; currentVictim <= Petrolius.dinos.Count; currentVictim++)
+            {
+
+                Console.WriteLine("Attack Begin");
+                Console.WriteLine(Petrolius.dinos[currentVictim].health);
+                Solaris.robots[0].Attack(Petrolius.dinos[currentVictim]);
+                checkLife(currentVictim);
+                Console.WriteLine(Petrolius.dinos[currentVictim].health);
+
+                Console.WriteLine(Solaris.robots[currentVictim].health);
+                Petrolius.dinos[currentVictim].Attack(Solaris.robots[currentVictim]);
+                checkLife(currentVictim);
+                Console.WriteLine(Solaris.robots[currentVictim].health);
+                Console.ReadLine();
+            }
+
         }
+
+        public void checkLife(int i)
+        {
+            
+            if (Petrolius.dinos[i].health <=0)
+            {
+                Console.WriteLine(Petrolius.dinos[i].dinoType + " is now dead!");
+            }
+        }
+
 
     }
 }
