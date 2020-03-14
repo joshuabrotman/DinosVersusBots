@@ -10,9 +10,10 @@ namespace RobotsVsDino
     {
         static void Main(string[] args)
         {
- 
 
 
+            Battlefield Tokyo = new Battlefield();
+            Tokyo.Fight();
 
 
 

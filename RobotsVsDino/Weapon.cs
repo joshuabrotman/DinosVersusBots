@@ -8,5 +8,10 @@ namespace RobotsVsDino
 {
     class Weapon
     {
+        string weaponName;
+        public Weapon()
+        {
+            weaponName = "RailGun";
+        }
     }
 }

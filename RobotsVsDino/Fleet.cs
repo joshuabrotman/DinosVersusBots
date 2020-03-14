@@ -8,8 +8,12 @@ namespace RobotsVsDino
 {
     class Fleet
     {
-        Fleet(Robot[] robos)
+        public List<Robot> robots;
+
+        public Fleet()
         {
+            robots = new List<Robot>();
+
             Robot OptimusPrime = new Robot("Optimus Prime", "Plasma Rifle");
             Robot Sentinel = new Robot("Sentinel", "Plasma Laser");
             Robot Gundam = new Robot("Gundam", "RailGun");
@@ -19,10 +23,16 @@ namespace RobotsVsDino
             OptimusPrime.powerLevel = 3640;
             Sentinel.attackPower = 1300;
             Sentinel.health = 4050;
-            Sentinel.powerLevel = 495;
+            Sentinel.powerLevel = 4950;
             Gundam.attackPower = 3050;
             Gundam.health = 4090;
             Gundam.powerLevel = 3750;
+
+            robots.Add(Sentinel);
+            robots.Add(OptimusPrime);
+            robots.Add(Gundam);
+
+            
         }
     }
 }

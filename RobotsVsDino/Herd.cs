@@ -8,22 +8,27 @@ namespace RobotsVsDino
 {
     class Herd
     {
+        public List<Dinosaur> dinos;
 
-        public Herd(Dinosaur[] dinos)
+        public Herd()
         {
+            dinos = new List<Dinosaur>();
+
             Dinosaur Tyrannosaurus = new Dinosaur("Tyrannosaurus");
             Dinosaur Triceratops = new Dinosaur("Triceratops");
             Dinosaur Velociraptor = new Dinosaur("Velociraptor");
 
-            Tyrannosaurus.attackPower = 250;
-            Tyrannosaurus.energy = 125;
-            Tyrannosaurus.health = 100;
-            Triceratops.attackPower = 200;
-            Triceratops.energy = 175;
-            Triceratops.health = 100;
-            Velociraptor.attackPower = 225;
-            Velociraptor.energy = 125;
-            Velociraptor.health = 100;
+            Tyrannosaurus.attackPower = 2500;
+            Tyrannosaurus.energy = 1250;
+            Tyrannosaurus.health = 1000;
+            Triceratops.attackPower = 2000;
+            Triceratops.energy = 1750;
+            Triceratops.health = 1000;
+            Velociraptor.attackPower = 2250;
+            Velociraptor.energy = 1250;
+            Velociraptor.health = 1000;
         }
+
+        
     }
 }
