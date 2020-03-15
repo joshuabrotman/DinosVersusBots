@@ -12,19 +12,21 @@ namespace RobotsVsDino
         public int health;
         public int energy;
         public int attackPower;
+        public bool alive;
         public Dinosaur(string typeOfDino)
         {
             health = 100;
             energy = 100;
             attackPower = 100;
             dinoType = typeOfDino;
+            alive = true;
 
         }
 
 
         public void Attack(Robot Victim)
         {
-            Victim.health -= Victim.health - 175;
+            Victim.health -= Victim.health - 10;
         }
 
     }

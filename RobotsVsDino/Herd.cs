@@ -18,15 +18,15 @@ namespace RobotsVsDino
             Dinosaur Triceratops = new Dinosaur("Triceratops");
             Dinosaur Velociraptor = new Dinosaur("Velociraptor");
 
-            Tyrannosaurus.attackPower = 2500;
-            Tyrannosaurus.energy = 1250;
-            Tyrannosaurus.health = 1000;
-            Triceratops.attackPower = 2000;
-            Triceratops.energy = 1750;
-            Triceratops.health = 1000;
-            Velociraptor.attackPower = 2250;
-            Velociraptor.energy = 1250;
-            Velociraptor.health = 1000;
+            Tyrannosaurus.attackPower = 100;
+            Tyrannosaurus.energy = 100;
+            Tyrannosaurus.health = 100;
+            Triceratops.attackPower = 100;
+            Triceratops.energy = 100;
+            Triceratops.health = 100;
+            Velociraptor.attackPower = 100;
+            Velociraptor.energy = 100;
+            Velociraptor.health = 100;
 
             dinos.Add(Tyrannosaurus);
             dinos.Add(Triceratops);

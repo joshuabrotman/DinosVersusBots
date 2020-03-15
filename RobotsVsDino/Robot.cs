@@ -13,6 +13,7 @@ namespace RobotsVsDino
         public int powerLevel;
         public string weapon;
         public int attackPower;
+        public bool alive;
 
         public Robot(string robotName, string weaponName)
         {
@@ -21,12 +22,13 @@ namespace RobotsVsDino
             powerLevel = 100;
             weapon = weaponName;
             attackPower = 100;
+            alive = true;
 
         }
 
         public void Attack(Dinosaur Victim)
         {
-            Victim.health -= Victim.attackPower - 250;
+            Victim.health -= Victim.attackPower - 10;
         }
 
     }

@@ -20,19 +20,26 @@ namespace RobotsVsDino
 
         public void Fight()
         {
-            for (int currentVictim = 0; currentVictim <= Petrolius.dinos.Count; currentVictim++)
+            
+            for (int target = 0; target < Petrolius.dinos.Count; target++)
             {
 
                 Console.WriteLine("Attack Begin");
-                Console.WriteLine(Petrolius.dinos[currentVictim].health);
-                Solaris.robots[0].Attack(Petrolius.dinos[currentVictim]);
-                checkLife(currentVictim);
-                Console.WriteLine(Petrolius.dinos[currentVictim].health);
+                Console.WriteLine(Petrolius.dinos[target].health);
+                Solaris.robots[0].Attack(Petrolius.dinos[target]);
+                checkLife(target);
+                Console.WriteLine(Petrolius.dinos[target].health);
 
-                Console.WriteLine(Solaris.robots[currentVictim].health);
-                Petrolius.dinos[currentVictim].Attack(Solaris.robots[currentVictim]);
-                checkLife(currentVictim);
-                Console.WriteLine(Solaris.robots[currentVictim].health);
+            }
+
+            for (int target = 0; target < Solaris.robots.Count; target++)
+            {
+
+
+                Console.WriteLine(Solaris.robots[target].name + " has " + Solaris.robots[target].health + " health");
+                Petrolius.dinos[target].Attack(Solaris.robots[target]);
+                checkLife(target);
+                Console.WriteLine(Solaris.robots[target].health);
                 Console.ReadLine();
             }
 
@@ -44,7 +51,14 @@ namespace RobotsVsDino
             if (Petrolius.dinos[i].health <=0)
             {
                 Console.WriteLine(Petrolius.dinos[i].dinoType + " is now dead!");
+                Petrolius.dinos[i].alive = false;
             }
+            if(Solaris.robots[i].health <= 0)
+            {
+                Console.WriteLine(Solaris.robots[i].name + "is now dead!");
+                Solaris.robots[i].alive = false;
+            }
+            
         }
 
 
