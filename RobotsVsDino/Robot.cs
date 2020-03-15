@@ -28,7 +28,7 @@ namespace RobotsVsDino
 
         public void Attack(Dinosaur Victim)
         {
-            Victim.health -= Victim.attackPower - 10;
+            Victim.health -= 10;
         }
 
     }

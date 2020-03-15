@@ -20,47 +20,86 @@ namespace RobotsVsDino
 
         public void Fight()
         {
-            
-            for (int target = 0; target < Petrolius.dinos.Count; target++)
+            int robotTarget = 0;
+            int dinoTarget = 0;
+            //robots attack first
+            while (!IsThereAWinner())
             {
 
-                Console.WriteLine("Attack Begin");
-                Console.WriteLine(Petrolius.dinos[target].health);
-                Solaris.robots[0].Attack(Petrolius.dinos[target]);
-                checkLife(target);
-                Console.WriteLine(Petrolius.dinos[target].health);
+                // Petrolius.dinos.Count
+                
+                Console.WriteLine("Round Begins!");
+                
+                Solaris.robots[dinoTarget].Attack(Petrolius.dinos[dinoTarget]);
+                    
+                Console.WriteLine(Solaris.robots[dinoTarget].name + " attacked " + Petrolius.dinos[dinoTarget].dinoType);
+                Console.WriteLine(Petrolius.dinos[dinoTarget].dinoType + " has " + Petrolius.dinos[dinoTarget].health + " Heath Left.");
+                if (CheckDinoLife(dinoTarget) == false) { dinoTarget++; }
 
-            }
 
-            for (int target = 0; target < Solaris.robots.Count; target++)
-            {
+                
+                Petrolius.dinos[robotTarget].Attack(Solaris.robots[robotTarget]);
 
+                Console.WriteLine(Petrolius.dinos[robotTarget].dinoType + " attacked " + Solaris.robots[robotTarget].name);
+                Console.WriteLine(Solaris.robots[robotTarget].name + " has " + Solaris.robots[robotTarget].health + " health");
+                    
+                   
+                Console.WriteLine(Solaris.robots[robotTarget].health);
+                if (CheckDinoLife(robotTarget) == false) { robotTarget++; }
 
-                Console.WriteLine(Solaris.robots[target].name + " has " + Solaris.robots[target].health + " health");
-                Petrolius.dinos[target].Attack(Solaris.robots[target]);
-                checkLife(target);
-                Console.WriteLine(Solaris.robots[target].health);
                 Console.ReadLine();
+                
             }
 
         }
 
-        public void checkLife(int i)
+        public bool IsThereAWinner()
+        {
+            if (Petrolius.dinos[0].alive == false && Petrolius.dinos[1].alive == false && Petrolius.dinos[2].alive == false)
+            {
+                Console.WriteLine("Team Petrolius Wins!");
+                Console.ReadKey();
+                return true;
+
+            }
+            else if(Solaris.robots[0].alive == false && Solaris.robots[1].alive == false && Solaris.robots[2].alive == false) 
+            {
+                Console.WriteLine("Team Solaris Wins!");
+                Console.ReadKey();
+                return true;
+            }
+            else { return false; }
+        }
+
+        public bool CheckRobotLife(int currentTarget)
         {
             
-            if (Petrolius.dinos[i].health <=0)
+           
+            if(Solaris.robots[currentTarget].health <= 0)
             {
-                Console.WriteLine(Petrolius.dinos[i].dinoType + " is now dead!");
-                Petrolius.dinos[i].alive = false;
+                Console.WriteLine(Solaris.robots[currentTarget].name + "is now dead!");
+                Solaris.robots[currentTarget].alive = false;
+                return false;
             }
-            if(Solaris.robots[i].health <= 0)
+            else
             {
-                Console.WriteLine(Solaris.robots[i].name + "is now dead!");
-                Solaris.robots[i].alive = false;
+                return true;
             }
             
         }
 
-
-    }
+        public bool CheckDinoLife(int currentTarget)
+        {
+            if (Petrolius.dinos[currentTarget].health <= 0)
+            {
+                Console.WriteLine(Petrolius.dinos[currentTarget].dinoType + " is now dead!");
+                Petrolius.dinos[currentTarget].alive = false;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+}
 }
