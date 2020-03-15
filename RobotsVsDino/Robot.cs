@@ -26,9 +26,10 @@ namespace RobotsVsDino
 
         }
 
-        public void Attack(Dinosaur Victim)
+        public void Attack(Dinosaur Target)
         {
-            Victim.health -= 10;
+
+            Target.health -= 10;
         }
 
     }
