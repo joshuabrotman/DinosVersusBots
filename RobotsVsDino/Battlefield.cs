@@ -38,8 +38,8 @@ namespace RobotsVsDino
                 Console.WriteLine("Round Begins!");
 
                 //robots attack first
-                if (CheckDinoLife(dinoAttacker) == false) { dinoAttacker++; }
-                if (CheckRobotLife(robotAttacker) == false) { robotAttacker++; }
+                if (CheckDinoLife(dinoAttacker ) == false && dinoAttacker < 2) { dinoAttacker++; }
+                if (CheckRobotLife(robotAttacker ) == false && robotAttacker < 2) { robotAttacker++; }
                 Console.WriteLine("Choose the weapon of " + Solaris.robots[robotAttacker].name + ": ");
                 Console.WriteLine("Enter 1 - Plasma Rifle, 2 - Gauss Cannon, 3 - RailGun:");
                 weaponChoice = Convert.ToInt32( Console.ReadLine());
@@ -51,8 +51,8 @@ namespace RobotsVsDino
 
 
                 //dinosaurs attack second
-                if (CheckDinoLife(dinoAttacker) == false) { dinoAttacker++; }
-                if (CheckRobotLife(robotAttacker) == false) { robotAttacker++; }
+                if (CheckDinoLife(dinoAttacker) == false && dinoAttacker < 2) { dinoAttacker++; }
+                if (CheckRobotLife(robotAttacker) == false && robotAttacker < 2) { robotAttacker++; }
                 Console.WriteLine("Choose the attack of " + Petrolius.dinos[dinoAttacker].dinoType + ": ");
                 Console.WriteLine("Enter 1 - Hyper Claw, 2 - Uber Bite, 3 - Tail Bash:");
                 weaponChoice = Convert.ToInt32(Console.ReadLine());
