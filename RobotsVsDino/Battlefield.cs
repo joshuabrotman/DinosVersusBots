@@ -20,8 +20,10 @@ namespace RobotsVsDino
 
         public void Fight()
         {
-            drawBorder();
-            Console.SetCursorPosition(0, 30);
+            drawLogo();
+            Console.SetCursorPosition(0, 0);
+            Console.Clear();
+            
             int robotTarget = 0;
             int dinoTarget = 0;
             //robots attack first
@@ -31,7 +33,9 @@ namespace RobotsVsDino
                 // Petrolius.dinos.Count
                 
                 Console.WriteLine("Round Begins!");
-                Petrolius.dinos[dinoTarget].drawDinosaur(dinoTarget);
+
+                //robots attack first
+                
                 Solaris.robots[dinoTarget].Attack(Petrolius.dinos[dinoTarget]);
 
 
@@ -41,7 +45,7 @@ namespace RobotsVsDino
                 if (CheckDinoLife(dinoTarget) == false) { dinoTarget++; }
 
 
-                
+                //dinosaurs attack second
                 Petrolius.dinos[robotTarget].Attack(Solaris.robots[robotTarget]);
 
                 Console.WriteLine(Petrolius.dinos[robotTarget].dinoType + " attacked " + Solaris.robots[robotTarget].name);
@@ -49,7 +53,7 @@ namespace RobotsVsDino
                 Console.WriteLine(Solaris.robots[robotTarget].name + " has " + Solaris.robots[robotTarget].health + " health");
 
 
-                Console.WriteLine(Solaris.robots[robotTarget].health);
+                
                 if (CheckDinoLife(robotTarget) == false) { robotTarget++; }
 
                 Console.ReadLine();
@@ -109,34 +113,54 @@ namespace RobotsVsDino
             }
         }
 
-        public void drawBorder()
+        public void drawLogo()
         {
             Console.SetWindowSize(140,40);
-            Console.WriteLine("+----------------------------------------------------------------+--------------------------------------------------------------+");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("|                                                                |                                                              |");
-            Console.WriteLine("+----------------------------------------------------------------+--------------------------------------------------------------+");
+            Console.WriteLine(@"                  ____  _                      _    _______       ____        __          __      
+                 / __ \(_)___  ____  _____    | |  / / ___/      / __ \____  / /_  ____  / /______
+                / / / / / __ \/ __ \/ ___/____| | / /\__ \______/ /_/ / __ \/ __ \/ __ \/ __/ ___/
+               / /_/ / / / / / /_/ (__  )_____/ |/ /___/ /_____/ _, _/ /_/ / /_/ / /_/ / /_(__  ) 
+              /_____/_/_/ /_/\____/____/      |___//____/     /_/ |_|\____/_.___/\____/\__/____/ 
+
+
++--------------------------------------------------------------------+---------------------------------------------------+
+|                                                      ___._         |                          /[-])//  ___             |
+|                                                    .'  <0>'-.._    |                     __ --\ `_/~--|  / \           |
+|                                                   /  /.--.____')   |                   /_-/~~--~~ /~~~\\_\ /\          |
+|                                                  |   \   __.-'~    |                   |  |___|===|_-- | \ \ \         |
+|                                                  |  :  -'/         | _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\        |
+|                                                 /:.  :.-'          | ~\________|__/   / // \__ |  ||  / | |   | |      |
+| __________                                     | : '. |            |          ,~-|~~~~~\--, | \|--|/~|||  |   | |      |
+| '--.____  '--------.______       _.----.-----./      :/            |          [3-|____---~~ _--'==;/ _,   |   |_|      |
+|         \                 \      /                   /             |                      /   /\__|_/  \  \__/--/      |
+|         '--.__            `'----/       '-.      __ :/             |                     /  /\/~--|   | |  \///        |
+|               '-.___           :           \   .'  )/              |                    /  / |-__ \    |/              |
+|                     '---._           _.-'   ] /  _/                |                   |--/ /      |-- | \             |
+|                          '-._      _/     _/ / _/                  |                  \^~~\\/\      \   \/- _          |
+|                              \_ .-'____.-'__< |  \___              |                   \    |  \     |~~\~~| \         |
+|                                <_______.\    \_\_---.7             |                    \    \  \     \   \  | \       |
+|                               |   /'=r_.-'     _\\ =/              |                      \    \ |     \   \    \      |
+|                           .--'   /            ._/'>                |                       |~~|\/\|     \   \   |      |
+|                         .'   _.-'                                  |                      |   |/         \_--_- |\     |
+|                        / .--'                                      |                      |  /            /   |/\/     |
+|                       /,/                                          |                       ~~             /  /         |
+|                       |/`)                                         |                                     |__/          |
+|                       'c=,                                         |                                                   |
+|                                                                    |                                                   |
++--------------------------------------------------------------------+---------------------------------------------------+
+
+                                                    
+                                                       --==[ Press Enter ]==--
+      
+      
+                                      +--------------------------------------------------------+
+                                      |      __         _____        __    _____               |
+                                      |  ___/ /__ _  __/ ___/__  ___/ /__ / ___/__ ___ _  ___  |
+                                      | / _  / -_) |/ / /__/ _ \/ _  / -_) /__/ _ `/  ' \/ _ \ |
+                                      | \_,_/\__/|___/\___/\___/\_,_/\__/\___/\_,_/_/_/_/ .__/ |
+                                      |                                                /_/     |
+                                      +--------------------------------------------------------+");
+            Console.ReadKey();
         }
 }
 }
