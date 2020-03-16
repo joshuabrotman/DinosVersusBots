@@ -14,9 +14,9 @@ namespace RobotsVsDino
         {
             robots = new List<Robot>();
 
-            Robot OptimusPrime = new Robot("Optimus Prime", "Plasma Rifle");
-            Robot Sentinel = new Robot("Sentinel", "Plasma Laser");
-            Robot Gundam = new Robot("Gundam", "RailGun");
+            Robot OptimusPrime = new Robot("Optimus Prime");
+            Robot Sentinel = new Robot("Sentinel");
+            Robot Gundam = new Robot("Gundam");
 
             OptimusPrime.health = 100;
             OptimusPrime.powerLevel = 100;

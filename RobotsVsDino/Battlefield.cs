@@ -26,6 +26,9 @@ namespace RobotsVsDino
             
             int robotTarget = 0;
             int dinoTarget = 0;
+            int robotAttacker = 0;
+            int dinoAttacker = 0;
+            int weaponChoice = 0;
             //robots attack first
             while (!IsThereAWinner())
             {
@@ -35,22 +38,29 @@ namespace RobotsVsDino
                 Console.WriteLine("Round Begins!");
 
                 //robots attack first
-                
-                Solaris.robots[dinoTarget].Attack(Petrolius.dinos[dinoTarget]);
+                if (CheckDinoLife(dinoAttacker) == false) { dinoAttacker++; }
+                if (CheckRobotLife(robotAttacker) == false) { robotAttacker++; }
+                Console.WriteLine("Choose the weapon of " + Solaris.robots[robotAttacker].name + ": ");
+                Console.WriteLine("Enter 1 - Plasma Rifle, 2 - Gauss Cannon, 3 - RailGun:");
+                weaponChoice = Convert.ToInt32( Console.ReadLine());
+                Solaris.robots[robotAttacker].Attack(Petrolius.dinos[dinoTarget],weaponChoice);
 
-
-                Console.WriteLine(Solaris.robots[dinoTarget].name + " attacked " + Petrolius.dinos[dinoTarget].dinoType);
-
+                Console.WriteLine(Solaris.robots[robotAttacker].name + " attacked " + Petrolius.dinos[dinoTarget].dinoType);
                 Console.WriteLine(Petrolius.dinos[dinoTarget].dinoType + " has " + Petrolius.dinos[dinoTarget].health + " Heath Left.");
                 if (CheckDinoLife(dinoTarget) == false) { dinoTarget++; }
 
 
                 //dinosaurs attack second
-                Petrolius.dinos[robotTarget].Attack(Solaris.robots[robotTarget]);
+                if (CheckDinoLife(dinoAttacker) == false) { dinoAttacker++; }
+                if (CheckRobotLife(robotAttacker) == false) { robotAttacker++; }
+                Console.WriteLine("Choose the attack of " + Petrolius.dinos[dinoAttacker].dinoType + ": ");
+                Console.WriteLine("Enter 1 - Hyper Claw, 2 - Uber Bite, 3 - Tail Bash:");
+                weaponChoice = Convert.ToInt32(Console.ReadLine());
+                Petrolius.dinos[dinoAttacker].Attack(Solaris.robots[robotTarget],weaponChoice);
 
-                Console.WriteLine(Petrolius.dinos[robotTarget].dinoType + " attacked " + Solaris.robots[robotTarget].name);
+                Console.WriteLine(Petrolius.dinos[dinoAttacker].dinoType + " attacked " + Solaris.robots[robotTarget].name);
 
-                Console.WriteLine(Solaris.robots[robotTarget].name + " has " + Solaris.robots[robotTarget].health + " health");
+                Console.WriteLine(Solaris.robots[robotTarget].name + " has " + Solaris.robots[robotTarget].health + " health left.");
 
 
                 
