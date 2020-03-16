@@ -29,7 +29,7 @@ namespace RobotsVsDino
         public void Attack(Dinosaur Target)
         {
             Random random = new Random();
-            Target.health -= random.Next(0, 50);
+            Target.health -= random.Next(random.Next(0,20), random.Next(50,75));
         }
 
     }

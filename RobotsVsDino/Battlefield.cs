@@ -54,7 +54,7 @@ namespace RobotsVsDino
 
 
                 
-                if (CheckDinoLife(robotTarget) == false) { robotTarget++; }
+                if (CheckRobotLife(robotTarget) == false) { robotTarget++; }
 
                 Console.ReadLine();
                 
@@ -67,7 +67,7 @@ namespace RobotsVsDino
             if (Petrolius.dinos[0].alive == false && Petrolius.dinos[1].alive == false && Petrolius.dinos[2].alive == false)
             {
 
-                Console.WriteLine("Team Petrolius Wins!");
+                Console.WriteLine("Team Solaris Wins!");
                 Console.ReadKey();
                 return true;
 
@@ -75,7 +75,7 @@ namespace RobotsVsDino
             else if(Solaris.robots[0].alive == false && Solaris.robots[1].alive == false && Solaris.robots[2].alive == false) 
             {
 
-                Console.WriteLine("Team Solaris Wins!");
+                Console.WriteLine("Team Petrolius Wins!");
                 Console.ReadKey();
                 return true;
             }
@@ -88,7 +88,7 @@ namespace RobotsVsDino
            
             if(Solaris.robots[currentTarget].health <= 0)
             {
-                Console.WriteLine(Solaris.robots[currentTarget].name + "is now dead!");
+                Console.WriteLine(Solaris.robots[currentTarget].name + " is now dead!");
                 Solaris.robots[currentTarget].alive = false;
                 return false;
             }
