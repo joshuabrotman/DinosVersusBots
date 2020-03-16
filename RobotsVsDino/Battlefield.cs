@@ -100,6 +100,7 @@ namespace RobotsVsDino
             {
                 Console.WriteLine(Solaris.robots[currentTarget].name + " is now dead!");
                 Solaris.robots[currentTarget].alive = false;
+                Console.WriteLine("Press enter to continue:");
                 return false;
             }
             else
@@ -114,6 +115,7 @@ namespace RobotsVsDino
             if (Petrolius.dinos[currentTarget].health <= 0)
             {
                 Console.WriteLine(Petrolius.dinos[currentTarget].dinoType + " is now dead!");
+                Console.WriteLine("Press enter to continue:");
                 Petrolius.dinos[currentTarget].alive = false;
                 return false;
             }
